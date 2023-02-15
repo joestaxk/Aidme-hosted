@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  height: 20vh;
+  padding: 2rem;
+  margin: 0;
+//   position: fixed;
+  background-color: #ffffff;
+  .logo {
+    display: flex;
+    flex-direction: row;
+    &_icon {
+      height: 4rem;
+      margin-right: 1rem;
+    }
+    font-family: 'Indie Flower', cursive;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 51px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #eb2024;
+  }
+  &_links {
+    display: flex;
+    flex-direction: row;
+    width: 40rem;
+    justify-content: space-between;
+    li {
+      list-style: none;
+      color: #555555;
+      font-size: 25px;
+      padding: 1rem;
+    }
+    button {
+      background: #ffffff;
+      border: 1px solid #eb2024;
+      border-radius: 10px;
+      color: #eb2024;
+      padding: 1rem;
+      height: 3.5rem;
+      //   width: 12rem;
+      width: auto;
+      font-weight: 700;
+      font-size: 17px;
+    }
+  }
+}
