@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./../../components/Header/Header";
 import "./Home.scss";
 import EverydayAssitance from "../../assets/everydayassitance.png";
 import PersonalTaskForce from "../../assets/personaltaskforce.png";
@@ -7,8 +6,9 @@ import signup from "../../assets/signup.png";
 import errander from "../../assets/errander.png";
 import whiteline from "../../assets/whiteline.svg";
 import Button from "./../../components/Button/Button";
-import Service from "../../components/Services/Service";
+import Service from "../Services/Service";
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 function Home() {
   const services = [
@@ -86,88 +86,111 @@ function Home() {
     },
   ];
   return (
-    <div>
-      <Header />
-      <div className="home">
-        <section className="home_section-1">
-          <div className="modal">
+    <div className="home">
+      <section className="home_section-1">
+        <div className="modal">
+          <article>
+            Need a helping hand with your to-do list? Look no further than our
+            errand services - where we take care of the little things,
+            <span>so you can focus on the big things.</span>
+          </article>
+
+          <form>
+            <input type="text" placeholder="I need help with..."></input>
+            <Button
+              input="Tick off your List"
+              color="#fff"
+              backgroundColor="#f3292a"
+              width="auto"
+            ></Button>
+          </form>
+        </div>
+      </section>
+      <section className="home_section-2">
+        <article>
+          <h1>Effortless everyday assitance</h1>
+          We take care of the little tasks that can often become overwhelming,
+          allowing you to focus on the bigger things in life. From grocery
+          shopping and dry cleaning, to mail pickup and package delivery, we
+          offer a wide range of services to make your daily routine effortless
+          and stress-free. With our help, you'll have more time and energy to
+          devote to the things that matter most to you.
+        </article>
+
+        <img src={EverydayAssitance} className="everydayAssitance" />
+
+        <img src={PersonalTaskForce} className="personaltaskforce" />
+
+        <article>
+          <h1>Your personal task force - on demand and at your service</h1>
+          Get it done right, with our vetted Erranders ,Trusted help tailored to
+          you
+          <ul>
+            <li>Customizable support, always available</li>
+            <li> Expert help, whenever you need it </li>
+            <li>Your go-to team for all tasks</li>
+            <li>Effortless assistance, with our vetted and</li>
+            <li>background-checked Erranders.</li>
+            <li>Your personal task squad, ready for action</li>
+            <li> One-stop-shop for all your needs</li>
+            <li>Compare Errander reviews, ratings, and prices</li>
+            <li>Choose and connect with the best person for the job</li>
+          </ul>
+        </article>
+      </section>
+      <section className="home_section-3">
+        <h1>Ready to get started?</h1>
+        <div className="content">
+          <div className="signup_modal">
+            <img src={signup} />
             <article>
-              Need a helping hand with your to-do list? Look no further than our
-              errand services - where we take care of the little things,
-              <span>so you can focus on the big things.</span>
+              Achieve more with ease - hear the sweet sound of accomplished
+              tasks
             </article>
-
-            <form>
-              <input type="text" placeholder="I need help with..."></input>
-              <Button input="Tick off your List"></Button>
-            </form>
+            <Link to="/signup">
+              <Button
+                input="Sign Up"
+                color="#fff"
+                backgroundColor="#f3292a"
+                width="12rem"
+              />
+            </Link>
           </div>
-        </section>
-        <section className="home_section-2">
-          <article>
-            <h1>Effortless everyday assitance</h1>
-            We take care of the little tasks that can often become overwhelming,
-            allowing you to focus on the bigger things in life. From grocery
-            shopping and dry cleaning, to mail pickup and package delivery, we
-            offer a wide range of services to make your daily routine effortless
-            and stress-free. With our help, you'll have more time and energy to
-            devote to the things that matter most to you.
-          </article>
+          <img className="whiteline" src={whiteline} />
 
-          <img src={EverydayAssitance} className="everydayAssitance" />
-
-          <img src={PersonalTaskForce} className="personaltaskforce" />
-
-          <article>
-            <h1>Your personal task force - on demand and at your service</h1>
-            Get it done right, with our vetted Erranders ,Trusted help tailored
-            to you
-            <ul>
-              <li>Customizable support, always available</li>
-              <li> Expert help, whenever you need it </li>
-              <li>Your go-to team for all tasks</li>
-              <li>Effortless assistance, with our vetted and</li>
-              <li>background-checked Erranders.</li>
-              <li>Your personal task squad, ready for action</li>
-              <li> One-stop-shop for all your needs</li>
-              <li>Compare Errander reviews, ratings, and prices</li>
-              <li>Choose and connect with the best person for the job</li>
-            </ul>
-          </article>
-        </section>
-        <section className="home_section-3">
-          <h1>Ready to get started?</h1>
-          <div className="content">
-            <div className="signup_modal">
-              <img src={signup} />
-              <article>
-                Achieve more with ease - hear the sweet sound of accomplished
-                tasks
-              </article>
-              <Button input="Sign Up" className="btn" />
-            </div>
-            <img className="whiteline" src={whiteline} />
-
-            <div className="errander_modal">
-              <img src={errander} />
-              <article>
-                Thrive while being a savior to stressed-out neighbors
-              </article>
-              <Button input="Become an Errander" className="btn" />
-            </div>
+          <div className="errander_modal">
+            <img src={errander} />
+            <article>
+              Thrive while being a savior to stressed-out neighbors
+            </article>
+            <Link to="/errander-signup">
+              <Button
+                input="Become an Errander"
+                className="btn"
+                color="#fff"
+                backgroundColor="#f3292a"
+                width="auto"
+              />
+            </Link>
           </div>
-        </section>
-        <section className="home_section-4">
-          <h1>Get Help Today</h1>
+        </div>
+      </section>
+      <section className="home_section-4">
+        <h1>Get Help Today</h1>
 
-          <div className="services">
-            {services.map((service) => (
-              <Service service={service.name} key={service.id} />
-            ))}
-          </div>
-        </section>
-      </div>
-      <Footer />
+        <div className="services">
+          {services.map((service) => (
+            <Button
+              input={service.name}
+              key={service.id}
+              width="auto"
+              backgroundColor="#fff"
+              color="#f3292a"
+              border="solid 1px #f3292a"
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

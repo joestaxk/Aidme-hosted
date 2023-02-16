@@ -104,12 +104,14 @@
         align-items: center;
         img {
           width: 12rem;
+          height: 12rem;
         }
         article {
           width: 20rem;
         }
+
         .btn {
-          width: 12rem;
+          text-decoration: none;
         }
       }
 
@@ -125,12 +127,13 @@
         align-items: center;
         img {
           width: 12rem;
+          height: 12rem;
         }
         article {
           width: 15rem;
         }
         .btn {
-          width: 12rem;
+          text-decoration: none;
         }
       }
     }
@@ -145,11 +148,11 @@
     h1 {
       font-size: 2rem;
     }
-    .services{
-        margin-top: 2rem;
-        display: grid;
-        grid-template-columns:  auto auto auto auto;
-        grid-gap: 44px;
+    .services {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-gap: 44px;
     }
   }
 }

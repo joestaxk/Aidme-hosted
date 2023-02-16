@@ -1,9 +1,9 @@
 import React from 'react'
 import "./Service.scss"
 
-function Service({service}) {
+function Service() {
   return (
-    <div className='service'>{service}</div>
+    <div className='service'></div>
   )
 }
 

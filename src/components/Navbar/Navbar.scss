@@ -1,4 +1,4 @@
-.header {
+.navbar {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -28,13 +28,14 @@
     flex-direction: row;
     width: 40rem;
     justify-content: space-between;
-    li {
+    .links {
       list-style: none;
       color: #555555;
       font-size: 25px;
       padding: 1rem;
+      text-decoration: none;
     }
-    button {
+    .button {
       background: #ffffff;
       border: 1px solid #eb2024;
       border-radius: 10px;
