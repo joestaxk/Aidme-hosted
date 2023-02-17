@@ -4,23 +4,40 @@ import twitter from "../../assets/twitter.svg";
 import linkedin from "../../assets/linkedin.svg";
 import facebook from "../../assets/facebook.svg";
 import instagram from "../../assets/instagram.svg";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <div className="footer">
       <div className="links">
         <ul>
-          <li>Discover</li>
-          <li>Become a Tasker</li>
-          <li>All Services</li>
-          <li>Help</li>
+          <Link to="/" className="link">
+            Discover
+          </Link>
+          <Link to="/" className="link">
+            Become a Tasker
+          </Link>
+          <Link to="/" className="link">
+            All Services
+          </Link>
+          <Link to="/help" className="link">
+            Help
+          </Link>
         </ul>
 
         <ul>
-          <li>Company</li>
-          <li>About</li>
-          <li>Terms & Services</li>
-          <li>FAQ</li>
+          <Link to="/" className="link">
+            Company
+          </Link>
+          <Link to="/" className="link">
+            About
+          </Link>
+          <Link to="/" className="link">
+            Terms & Services
+          </Link>
+          <Link to="/" className="link">
+            FAQ
+          </Link>
         </ul>
       </div>
 

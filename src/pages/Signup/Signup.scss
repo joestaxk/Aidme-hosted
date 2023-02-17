@@ -1,0 +1,111 @@
+.signup {
+  display: flex;
+  flex-direction: row;
+  height: 125vh;
+  background-color: #eb2024;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  .login_section {
+    display: flex;
+    flex-direction: column;
+    height: 25rem;
+    // width: 18.625rem;
+    justify-content: space-evenly;
+    align-items: center;
+    img {
+      height: 61px;
+      width: 61px;
+    }
+    h1 {
+      font-size: 40px;
+      font-family: "Inter", sans-serif;
+    }
+    p {
+      text-align: center;
+      width: 50%;
+    }
+    .btn {
+      margin-top: 10rem;
+    }
+  }
+  &_form {
+    height: 80%;
+    width: 50%;
+    background: #ffffff;
+    border-radius: 45px;
+    display: flex;
+    align-items: space-evenly;
+    padding: 4.1rem 3.25rem;
+    flex-direction: column;
+    font-family: Inter;
+    h1 {
+      align-self: center;
+      font-family: "Indie Flower", cursive;
+      font-size: 5.5rem;
+      font-weight: 400;
+      line-height: 51px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #eb2024;
+      //   margin-bottom: 4.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.5rem;
+        width: 100%;
+        margin-top: 2rem;
+        input {
+          height: 3.5rem;
+          border-radius: 10px;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          -ms-border-radius: 10px;
+          -o-border-radius: 10px;
+          background-color: #fff;
+          font-size: 18px;
+          width: 100%;
+          padding: 1rem;
+          border: solid 1px #555555;
+          color: #000;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+    .gender {
+      display: flex;
+      justify-content: space-between;
+      width: 25%;
+      color: #000;
+      align-items: left;
+      margin-top: 1rem;
+      .checkbox{
+        height: 20px;
+        width: 20px;
+        border: #555555 solid 1px;
+      }
+    }
+    p {
+      color: #000;
+      text-align: left;
+      span {
+        color: #eb2024;
+      }
+    }
+    .btn_container {
+      display: flex;
+      width: 100%;
+      align-items: right;
+      margin-top: 3rem;
+      margin-left: 50%;
+    }
+  }
+}

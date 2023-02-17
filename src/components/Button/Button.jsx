@@ -1,6 +1,13 @@
 import React from "react";
 import "./Button.scss";
-function Button({ input, backgroundColor, color, width, border }) {
+function Button({
+  input,
+  backgroundColor,
+  color,
+  width,
+  border,
+  borderRadius,
+}) {
   return (
     <div
       className="button"
@@ -8,7 +15,8 @@ function Button({ input, backgroundColor, color, width, border }) {
         backgroundColor: backgroundColor,
         color: color,
         width: width,
-        border: border
+        border: border,
+        borderRadius: borderRadius,
       }}
     >
       {input}

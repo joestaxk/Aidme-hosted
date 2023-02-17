@@ -6,8 +6,7 @@ import signup from "../../assets/signup.png";
 import errander from "../../assets/errander.png";
 import whiteline from "../../assets/whiteline.svg";
 import Button from "./../../components/Button/Button";
-import Service from "../Services/Service";
-import Footer from "../../components/Footer/Footer";
+
 import { Link } from "react-router-dom";
 
 function Home() {
