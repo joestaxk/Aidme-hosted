@@ -44,7 +44,7 @@ function Footer() {
       <div className="socials_container">
         <h1>Aid Me</h1>
         <div className="socials">
-          Copyright © Aidme 2023. All rights reserved.
+          Copyright © Aidme {new Date().getFullYear()}. All rights reserved.
           <div className="icons">
             <img src={twitter} />
             <img src={linkedin} />

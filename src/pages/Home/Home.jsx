@@ -107,13 +107,13 @@ function Home() {
       </section>
       <section className="home_section-2">
         <article>
-          <h1>Effortless everyday assitance</h1>
-          We take care of the little tasks that can often become overwhelming,
+          <h1>Effortless everyday assitances</h1>
+      <p >  We take care of the little tasks that can often become overwhelming,
           allowing you to focus on the bigger things in life. From grocery
           shopping and dry cleaning, to mail pickup and package delivery, we
           offer a wide range of services to make your daily routine effortless
           and stress-free. With our help, you'll have more time and energy to
-          devote to the things that matter most to you.
+          devote to the things that matter most to you.</p>  
         </article>
 
         <img src={EverydayAssitance} className="everydayAssitance" />
@@ -122,8 +122,8 @@ function Home() {
 
         <article>
           <h1>Your personal task force - on demand and at your service</h1>
-          Get it done right, with our vetted Erranders ,Trusted help tailored to
-          you
+        <p>  Get it done right, with our vetted Erranders ,Trusted help tailored to
+          you</p>
           <ul>
             <li>Customizable support, always available</li>
             <li> Expert help, whenever you need it </li>
@@ -136,6 +136,7 @@ function Home() {
             <li>Choose and connect with the best person for the job</li>
           </ul>
         </article>
+  
       </section>
       <section className="home_section-3">
         <h1>Ready to get started?</h1>
