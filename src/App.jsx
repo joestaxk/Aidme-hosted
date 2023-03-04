@@ -106,6 +106,7 @@ const closeModal = () => {
             lastOpen={lastOpen}
             lastClose={lastClose}
             />} />
+          <Route path="/help" element={<Help />}/>
           </Routes>
           <Footer />
       </Router>
