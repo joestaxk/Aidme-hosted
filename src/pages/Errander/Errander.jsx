@@ -51,8 +51,8 @@ const Errander = ({
         <div>
           <h2 className="earn">Earn money your way</h2>
           <p className="discover">
-            Discover the possibilities and <br /> find out how much you can{" "}
-            <br /> make by working on your <br /> own schedule.
+            Discover the possibilities and  find out how much you can{" "}
+            make by working on your  own schedule.
           </p>
           <h5>Select your Country</h5>
           <select value="">

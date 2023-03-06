@@ -26,8 +26,9 @@ hr {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-top: 25px;
     position: relative;
-    margin-left: -150px;
-    font-weight: 400;
+    margin-left: 7.7em;
+    font-weight: 500;
+    width: 16em;
     
 }
 .xl-x div h5 {
