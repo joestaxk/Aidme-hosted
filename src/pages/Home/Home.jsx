@@ -108,7 +108,7 @@ function Home() {
       <section className="home_section-2">
         <article>
           <h1>Effortless everyday assitances</h1>
-      <p >  We take care of the little tasks that can often become overwhelming,
+      <p className="up">  We take care of the little tasks that can often become overwhelming,
           allowing you to focus on the bigger things in life. From grocery
           shopping and dry cleaning, to mail pickup and package delivery, we
           offer a wide range of services to make your daily routine effortless
@@ -122,7 +122,7 @@ function Home() {
 
         <article>
           <h1>Your personal task force - on demand and at your service</h1>
-        <p>  Get it done right, with our vetted Erranders ,Trusted help tailored to
+        <p className="up">  Get it done right, with our vetted Erranders ,Trusted help tailored to
           you</p>
           <ul>
             <li>Customizable support, always available</li>

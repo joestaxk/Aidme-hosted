@@ -29,6 +29,8 @@ function Help() {
             <button>Registrants</button>
           </div>
         </div>
+         
+      
 
         {select === "Component 1" && <Component1 />}
         {select === "Component 2" && <Component2 />}

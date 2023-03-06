@@ -38,8 +38,7 @@ function Signup() {
             Female
           </div>
           <p>
-            By signing up you agree to our <span>Terms</span> of Use and{" "}
-            <span> Privacy Policy.</span>
+            By signing up you agree to our <span>Terms</span> of Use and   <span> Privacy Policy.</span>
           </p>
 
           <div className="btn_container">

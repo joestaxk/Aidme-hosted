@@ -62,7 +62,10 @@
     padding: 0 2rem;
     article {
       text-align: start;
-      width: 30rem;
+      width: 35rem;
+      display: grid;
+      grid-template-rows: auto auto;
+      row-gap: 0px;
       &:first-child {
         margin-top: 11rem;
       }
@@ -70,14 +73,22 @@
         text-align: start;
         font-weight: 700;
         font-size: 25px;
-        line-height: 34px;
-        letter-spacing: 0.05em;
-        margin-bottom: 1rem;
-        // word-wrap: none;
-        width: 200px;
-        display: flex;
-        flex-direction: row;
+        // line-height: 34px;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.75rem;
+        width: 20em;
+        // display: flex;
+        // flex-direction: row;
+        font-family: 'Space Grotesk';
       }
+      .up {
+        // position: relative;
+        margin-top: -8.5rem;
+      }
+      li {
+        margin-top: -3rem;
+      }
+      
     }
     .everydayAssitance {
       margin-top: 7.5rem;
