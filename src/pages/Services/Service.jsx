@@ -46,7 +46,7 @@ function Service() {
           <span>Personal shopping and styling</span>
           <span>Personal chef services</span>
           <span>Personalized meal delivery services</span>
-          <hr />
+      
         </div>
         <div>
           <img src={Shop} alt="img" />
