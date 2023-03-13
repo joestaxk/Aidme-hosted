@@ -8,6 +8,7 @@ import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
 import Service from "./pages/Services/Service";
 import Errander from "./pages/Errander/Errander";
+import Login from "./pages/Signup/Login";
 
 function App() {
    
@@ -79,6 +80,7 @@ const closeModal = () => {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Service/>}/>
           <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login/>}/>
           <Route path="/help" element={<Help />} />
           <Route path="/errander-signup" element={<Errander 
           open={open}
