@@ -19,7 +19,7 @@
       width: 61px;
     }
     h1 {
-      font-size: 40px;
+      font-size: 30px;
       font-family: "Inter", sans-serif;
     }
     p {
@@ -43,13 +43,13 @@
     h1 {
       align-self: center;
       font-family: "Indie Flower", cursive;
-      font-size: 5.5rem;
+      font-size: 5rem;
       font-weight: 400;
       line-height: 51px;
       letter-spacing: 0em;
       text-align: left;
       color: #eb2024;
-      //   margin-bottom: 4.5rem;
+        margin-bottom: 1.5rem;
     }
 
     form {
@@ -61,7 +61,7 @@
         grid-gap: 1.5rem;
         width: 100%;
         margin-top: 2rem;
-        input {
+       .input {
           height: 3.5rem;
           border-radius: 10px;
           -webkit-border-radius: 10px;
@@ -104,8 +104,60 @@
       display: flex;
       width: 100%;
       align-items: right;
-      margin-top: 3rem;
+      margin-top: -3.5rem;
       margin-left: 50%;
     }
   }
+}
+.log {
+  width: 70%;
+}
+.register {
+  width: 80%;
+  border-radius: 2.1rem;
+  margin-top: 10rem;
+  background-color:#fff ;
+  border: none;
+  color: #eb2024;
+  height: 30%;
+  font-size: 16px;
+  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
+
+.login-btn {
+  position: relative;
+  top: 30rem;
+}
+.login {
+  display: grid;
+  grid-template-rows: auto auto;
+  margin: 40px;
+}
+.login input {
+  margin: 25px;
+  // height: 4.5em;
+  // border-radius: 10px;
+  outline: none;
+  width: 100%;
+  // border: none;
+  margin-left: -20px;
+  height: 3.5rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  background-color: #fff;
+  font-size: 18px;
+}
+::placeholder {
+  position: absolute;
+  margin-left: 10px;
+  top: 15px;
+}
+.login-div {
+  position: relative;
+  left:16rem;
+  top: 4rem;
 }

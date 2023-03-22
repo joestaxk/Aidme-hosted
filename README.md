@@ -1,1 +1,1 @@
-# Aidme
+#this is a app that depicts and run errands for people 
