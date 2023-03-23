@@ -1,0 +1,45 @@
+.service-img {
+    background: url('../../assets/Services.png');
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+section h3 {
+    font-size: 22px;
+    font-family: 'Space Grotesk',cursive;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+span {
+    display: block;
+    color: red;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 10px;
+}
+.xl {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-top: 80px;
+    padding: 20px;
+}
+.xl div {
+    box-shadow: 1px 1px 0px 0px gray;
+    margin: 20px 40px;
+    border-radius: 5px;
+    padding:20px;
+}
+.xl div h5 {
+    text-align: left;
+    font-size: 18px;
+    color:red;
+    padding: 15px 0;
+}
+.xl div p {
+    text-align: left;
+    font-size:14px;
+    padding:10px;
+    font-weight: bolder;
+}
