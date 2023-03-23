@@ -3,7 +3,9 @@ import "./Service.scss"
 
 function Service() {
   return (
-    <div className='service'></div>
+    <div className='service'>
+      hello
+    </div>
   )
 }
 
