@@ -14,7 +14,7 @@ import Four from "../../assets/Four.png";
 import Five from "../../assets/Five.png";
 import Six from "../../assets/Six.png";
 import { MdCancel } from "react-icons/md";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Errander = ({
   open,
@@ -41,9 +41,9 @@ const Errander = ({
   last,
   lastOpen,
   lastClose,
-   isErrand,
-   openIsErrand,
-   closeIsErrand
+  isErrand,
+  openIsErrand,
+  closeIsErrand,
 }) => {
   return (
     <div>
@@ -94,7 +94,7 @@ const Errander = ({
               Cleaning
             </option>
             <option name="" id="">
-           Delivey & Eraands
+              Delivey & Eraands
             </option>
             <option name="" id="">
               Handy Man
@@ -105,34 +105,22 @@ const Errander = ({
             <option name="" id="">
               Furniture Assembly
             </option>
-            <option value="">
-              Mounting & installation
-            </option>
-            <option value="">
-              Personal Assistant
-            </option>
-            <option value="">
-              Home Improvement
-            </option>
-            <option value="">
-              Events & Photography
-            </option>
-            <option value="">
-              Virtual & Online Tasks
-            </option>
-            <option value="">
-              Fitness & Wellness
-            </option>
-            <option value="">
-              Pet Services
-            </option>
-            <option value="">
-              Elder Care & Companionship
-            </option>
+            <option value="">Mounting & installation</option>
+            <option value="">Personal Assistant</option>
+            <option value="">Home Improvement</option>
+            <option value="">Events & Photography</option>
+            <option value="">Virtual & Online Tasks</option>
+            <option value="">Fitness & Wellness</option>
+            <option value="">Pet Services</option>
+            <option value="">Elder Care & Companionship</option>
           </select>
-          <h6 style={{visibility:'hidden'}}>
+          <h6 style={{ visibility: "hidden" }}>
             $25per
-            <small style={{ fontSize: "10px", color: "black",visibility:'hidden'}}>/ hour?</small>
+            <small
+              style={{ fontSize: "10px", color: "black", visibility: "hidden" }}
+            >
+              / hour?
+            </small>
           </h6>
           <button className="get" onClick={openModal}>
             Get Started
@@ -146,7 +134,12 @@ const Errander = ({
             }}
           >
             Already have an account?{" "}
-            <small style={{ color: "red", fontSize: "11px" }} onClick={openIsErrand} >Sign in</small>
+            <small
+              style={{ color: "red", fontSize: "11px" }}
+              onClick={openIsErrand}
+            >
+              Sign in
+            </small>
           </h6>
         </div>
       </div>
@@ -166,7 +159,11 @@ const Errander = ({
                 className="input"
               />
               <input type="text" placeholder="Last Name *" className="input" />
-              <input type="number" placeholder="Your Phone *" className="input" />
+              <input
+                type="number"
+                placeholder="Your Phone *"
+                className="input"
+              />
               <input
                 type="password"
                 placeholder="Password *"
@@ -187,31 +184,41 @@ const Errander = ({
               </h6>
             </div>
             <div className="reg-btn">
-                  <button className="errander-log">Register</button>
+              <button className="errander-log">Register</button>
             </div>
           </div>
         ) : null}
-       
-        {
-          isErrand? (
-            <div className="errand-login-btn">
-                    <button onClick={closeIsErrand} className="hr-btn">
+
+        {isErrand ? (
+          <div className="errand-login-btn">
+            <button onClick={closeIsErrand} className="hr-btn">
               <MdCancel />
             </button>
-             <div>
-                     <h3 className="errand-heading">Login to Continue</h3>
-             </div>
-              <div className="errander-input">
-                   <input type="email" name="" id="" placeholder="Your Email *"  className="errand-input"/>
-                   <input type="password" name="" id="" placeholder="Password *" className="errand-input" />
-                    <h5 className="forget">Forget Password</h5>
-              </div>
-               <div className="reg-btn">
-                    <button className="errand-btn">Login</button>
-               </div>
-            </div> 
-          ) : null
-        }
+            <div>
+              <h3 className="errand-heading">Login to Continue</h3>
+            </div>
+            <div className="errander-input">
+              <input
+                type="email"
+                name=""
+                id=""
+                placeholder="Your Email *"
+                className="errand-input"
+              />
+              <input
+                type="password"
+                name=""
+                id=""
+                placeholder="Password *"
+                className="errand-input"
+              />
+              <h5 className="forget">Forget Password</h5>
+            </div>
+            <div className="reg-btn">
+              <button className="errand-btn">Login</button>
+            </div>
+          </div>
+        ) : null}
         <section>
           <article>
             <img src={Vector} alt="" />
@@ -299,8 +306,8 @@ const Errander = ({
             fontFamily: "Segoe UI",
             paddingTop: "20px",
             paddingBottom: "50px",
-            fontSize:'19px',
-            fontWeight:'bold'
+            fontSize: "19px",
+            fontWeight: "bold",
           }}
         >
           Getting Started
