@@ -20,6 +20,7 @@ function App() {
   const [five,setFive] = useState(false);
   const [six,setSix] = useState(false);
   const [last,setLast] = useState(false)
+  const [isErrand, setIsErrand] = useState(false);
 
   const openModal = () => {
     setOpen(true);
@@ -72,6 +73,12 @@ const closeModal = () => {
  const lastClose = () => {
   setLast(false)
  }
+ const openIsErrand = () => {
+    setIsErrand(true);
+ }
+ const closeIsErrand = () => {
+   setIsErrand(false);
+ }
   return (
     <div>
       <Router>
@@ -107,6 +114,9 @@ const closeModal = () => {
             last={last}
             lastOpen={lastOpen}
             lastClose={lastClose}
+            isErrand={isErrand}
+            openIsErrand={openIsErrand}
+            closeIsErrand={closeIsErrand}
             />} />
           <Route path="/help" element={<Help />}/>
           </Routes>
