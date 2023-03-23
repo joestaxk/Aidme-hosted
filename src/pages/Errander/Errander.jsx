@@ -14,6 +14,7 @@ import Four from "../../assets/Four.png";
 import Five from "../../assets/Five.png";
 import Six from "../../assets/Six.png";
 import { MdCancel } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Errander = ({
   open,
@@ -40,6 +41,9 @@ const Errander = ({
   last,
   lastOpen,
   lastClose,
+   isErrand,
+   openIsErrand,
+   closeIsErrand
 }) => {
   return (
     <div>
@@ -51,8 +55,8 @@ const Errander = ({
         <div>
           <h2 className="earn">Earn money your way</h2>
           <p className="discover">
-            Discover the possibilities and  find out how much you can{" "}
-            make by working on your  own schedule.
+            Discover the possibilities and find out how much you can make by
+            working on your own schedule.
           </p>
           <h5>Select your Country</h5>
           <select value="">
@@ -90,28 +94,49 @@ const Errander = ({
               Cleaning
             </option>
             <option name="" id="">
-              Holiday
+           Delivey & Eraands
             </option>
             <option name="" id="">
-              Assistant
+              Handy Man
             </option>
             <option name="" id="">
-              Furniture
+              Moving and Packing
             </option>
             <option name="" id="">
-              Shopping
+              Furniture Assembly
+            </option>
+            <option value="">
+              Mounting & installation
+            </option>
+            <option value="">
+              Personal Assistant
+            </option>
+            <option value="">
+              Home Improvement
+            </option>
+            <option value="">
+              Events & Photography
+            </option>
+            <option value="">
+              Virtual & Online Tasks
+            </option>
+            <option value="">
+              Fitness & Wellness
+            </option>
+            <option value="">
+              Pet Services
+            </option>
+            <option value="">
+              Elder Care & Companionship
             </option>
           </select>
-          <h6>
-            $25per {/*POP Up Modal  */}
-            <small
-              style={{ fontSize: "10px", color: "black" }}
-              onClick={openModal}
-            >
-              / hour?
-            </small>
+          <h6 style={{visibility:'hidden'}}>
+            $25per
+            <small style={{ fontSize: "10px", color: "black",visibility:'hidden'}}>/ hour?</small>
           </h6>
-          <button className="get">Get Started</button>
+          <button className="get" onClick={openModal}>
+            Get Started
+          </button>
           <h6
             style={{
               fontSize: "12px",
@@ -121,24 +146,72 @@ const Errander = ({
             }}
           >
             Already have an account?{" "}
-            <small style={{ color: "red", fontSize: "11px" }}>Sign in</small>
+            <small style={{ color: "red", fontSize: "11px" }} onClick={openIsErrand} >Sign in</small>
           </h6>
         </div>
       </div>
       <div>
-        {/* Modal for  estimated price */}
+        {/* Errander Account */}
         {open ? (
           <div className="modals">
             <button onClick={close} className="hr-btn">
               <MdCancel />
             </button>
-            <h4>
-              Estimate earnings are based on average rate in locations similar
-              to yours. Actual earnings may vary with your rates, category type,
-              location, demand and other factors.
-            </h4>
+            <h4>Create your account</h4>
+            <div className="form">
+              <input type="text" placeholder="First Name *" className="input" />
+              <input
+                type="email"
+                placeholder="Your Email * "
+                className="input"
+              />
+              <input type="text" placeholder="Last Name *" className="input" />
+              <input type="number" placeholder="Your Phone *" className="input" />
+              <input
+                type="password"
+                placeholder="Password *"
+                className="input"
+              />
+              <input type="text" placeholder="Address *" className="input" />
+              <input
+                type="password"
+                placeholder="Confrim Password* "
+                className="input"
+              />
+              <input type="text" placeholder="Country*" className="input" />
+            </div>
+            <div className="form-footer">
+              <h6 className="context">
+                By signing up you agree to our <small>Terms</small> of Use and{" "}
+                <small>Privacy Policy.</small>
+              </h6>
+            </div>
+            <div className="reg-btn">
+                  <button className="errander-log">Register</button>
+            </div>
           </div>
         ) : null}
+       
+        {
+          isErrand? (
+            <div className="errand-login-btn">
+                    <button onClick={closeIsErrand} className="hr-btn">
+              <MdCancel />
+            </button>
+             <div>
+                     <h3 className="errand-heading">Login to Continue</h3>
+             </div>
+              <div className="errander-input">
+                   <input type="email" name="" id="" placeholder="Your Email *"  className="errand-input"/>
+                   <input type="password" name="" id="" placeholder="Password *" className="errand-input" />
+                    <h5 className="forget">Forget Password</h5>
+              </div>
+               <div className="reg-btn">
+                    <button className="errand-btn">Login</button>
+               </div>
+            </div> 
+          ) : null
+        }
         <section>
           <article>
             <img src={Vector} alt="" />
@@ -226,6 +299,8 @@ const Errander = ({
             fontFamily: "Segoe UI",
             paddingTop: "20px",
             paddingBottom: "50px",
+            fontSize:'19px',
+            fontWeight:'bold'
           }}
         >
           Getting Started
