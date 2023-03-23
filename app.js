@@ -1,49 +1,69 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const userRoutes = require('./routes/userRoutes');
-const dashboardRoutes = require('./routes/dashboardRoutes');
+const express     = require('express');
+require('dotenv').config()
+const compression = require('compression')
+const helmet      =  require("helmet")
+const cors        = require("cors")
+const httpStatus  = require("http-status")
+const Routes = require("./routes/v1");
+const { errorConverter, errorHandler } = require("./middlewares/error");
+const limiter = require("./middlewares/rate-limiter");
+const ApiError = require("./utils/ApiError");
+const config = require("./config/config")
 
-const mongoose = require('mongoose');
-const { toFormData } = require('axios');
-
+// initialize express app
 const app = express();
-const port = process.env.PORT || 3000;
 
-// const mongoConnect = require('./utils/database').mongoConnect;
-app.use(bodyParser.json());
+// gzip compression
+app.use(compression())
 
+// secure http headers
+app.use(helmet())
+
+// parse JSON body req
+app.use(express.json());
+
+// parse urlencoded request body
+app.use(express.urlencoded({extended: true}));
+
+
+// cross-origin
+const corsOptions = {
+   	methods: ["GET", "POST", "PUT", "DELETE"],
+	origin: config.validCors.split(","),
+	optionSuccessStatus: 200,
+	headers: ["Content-Type", "Authorization", "x-access-token"],
+	// credentials: true, 
+	maxAge: 3600,
+	preflightContinue: true, 
+}
+app.use(cors(corsOptions))
+app.options("*", cors(corsOptions));
+
+
+// limit number of request per timing to api route.
+if(config.env === "production") {
+    app.use("/v1", limiter);
+}
+
+// when parent url request
+app.get('/', (req,res,next) => {
+   res.status(200).send("Please request our api at /v1")
+})
+
+// v1 api routes
+app.use("/v1", Routes);
+
+// send back a 404 error for any unknown api request
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 
-  'OPTIONS, GET, POST, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 
-  'Content-Type, Authorization');
-  next();
-})
+	throw new ApiError(httpStatus.NOT_FOUND, "Link not found");
+});
 
+// convert error to ApiError, if needed
+app.use(errorConverter);
 
-app.use('/api/users', userRoutes);
-app.post('/api', dashboardRoutes);
+// handle error
+app.use(errorHandler);
 
-
-app.use((error, req, res, next) => {
-  console.log(error);
-  const status = error.statusCode || 500;
-  const message = error.message;
-  const data = error.data;
-  res.status(status).json({message: message, data: data});
-})
-
-
-mongoose
-  .connect('mongodb+srv://Aidme:WaE1EO9dN4QlHCEP@aidme.crnapwb.mongodb.net/?retryWrites=true&w=majority')
-  .then(result => {
-  app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
-    });
-  })
-  .catch(err => {
-    console.log(err);
-
-  });
+// export app
+module.exports = app;
 
