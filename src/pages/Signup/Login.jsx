@@ -1,6 +1,6 @@
 import React from "react";
 import "./Signup.scss";
-import Rocket from "../../assets/rocket.svg";
+import Rocket from "../../assets/Rocket.svg";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 

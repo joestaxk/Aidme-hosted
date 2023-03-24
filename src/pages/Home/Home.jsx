@@ -147,7 +147,8 @@ function Home() {
               Achieve more with ease - hear the sweet sound of accomplished
               tasks
             </article>
-            <Link to="/signup">
+//             <Link to="/signup"> 
+<Link to="/Signup" className="links">
               <Button
                 input="Sign Up"
                 color="#fff"
