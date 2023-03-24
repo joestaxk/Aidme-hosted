@@ -14,7 +14,7 @@ import Four from "../../assets/Four.png";
 import Five from "../../assets/Five.png";
 import Six from "../../assets/Six.png";
 import { MdCancel } from "react-icons/md";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Errander = ({
   open,
@@ -147,7 +147,7 @@ const Errander = ({
         {/* Errander Account */}
         {open ? (
           <div className="modals">
-            <button onClick={close} className="hr-btn">
+            <button onClick={close} className="hr-btng">
               <MdCancel />
             </button>
             <h4>Create your account</h4>
@@ -172,7 +172,7 @@ const Errander = ({
               <input type="text" placeholder="Address *" className="input" />
               <input
                 type="password"
-                placeholder="Confrim Password* "
+                placeholder="ConfirmPassword* "
                 className="input"
               />
               <input type="text" placeholder="Country*" className="input" />
@@ -257,7 +257,7 @@ const Errander = ({
             <p>
               Earn money on your own terms with our platform! You keep 100% of
               what you charge for your services, plus any tips. We only charge a
-              small 2% fee on your earnings. Get paid directly and securely
+              small % fee on your earnings. Get paid directly and securely
               through our invoice and payment system.
             </p>
           </section>
@@ -282,7 +282,7 @@ const Errander = ({
               <br />
               and affordable way for people to get things done by connecting{" "}
               <br />
-              them with reliable erranders who provide a wide range of services{" "}
+              them with reliable errander who provide a wide range of services{" "}
               <br />
               including pick-up/drop-off, personal shopping, grocery shopping{" "}
               <br />
@@ -391,13 +391,8 @@ const Errander = ({
                   </li>
                   <li>
                     Have a smartphone. You'll be managing your tasks through our
-                    Aid me website, which is compatible with iOS or Android.
-                    Provide valid U.S. Social Security number.
-                  </li>
-                  <li>
-                    In applicable cities, pay a one time, non-refundable $5
-                    registration fee. This helps us provide the best service to
-                    our Errander community.
+                    Aid me website. Provide valid Driver License, Passport,
+                    Identity Card.
                   </li>
                 </ul>
               </div>
@@ -417,8 +412,7 @@ const Errander = ({
                   you use. <br />
                   For some categories, you don’t necessarily need previous
                   experience (like Delivery or Errands). <br />
-                  For other categories (like Minor Home Repairs, IKEA Assembly),{" "}
-                  <br />
+                  For other categories (like Minor Home Repairs, ), <br />
                   you should have — or be able and willing to learn — the proper
                   skills <br />
                   and tools to complete the tasks.
@@ -463,7 +457,7 @@ const Errander = ({
                   add your bank information <br />
                   and billing address in order to get paid via the app. Savings
                   accounts, prepaid debit cards, <br />
-                  and reloadable bank cards ar en’t valid, even if they accept
+                  and reload able bank cards ar en’t valid, even if they accept
                   direct deposits. <br />
                   We take protecting your personal information seriously and use
                   the latest encryption <br />
