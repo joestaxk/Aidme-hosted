@@ -383,14 +383,10 @@ const Errander = ({
                   </li>
                   <li>
                     Have a smartphone. You'll be managing your tasks through our
-                    Aid me website, which is compatible with iOS or Android.
-                    Provide valid U.S. Social Security number.
+                    Aid me website.
+                    Provide valid Driver License, Passport, Identity Card.
                   </li>
-                  <li>
-                    In applicable cities, pay a one time, non-refundable $5
-                    registration fee. This helps us provide the best service to
-                    our Errander community.
-                  </li>
+               
                 </ul>
               </div>
             ) : null}
