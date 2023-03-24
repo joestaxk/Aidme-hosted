@@ -405,7 +405,7 @@ const Errander = ({
                   you use. <br />
                   For some categories, you don’t necessarily need previous
                   experience (like Delivery or Errands). <br />
-                  For other categories (like Minor Home Repairs, IKEA Assembly),{" "}
+                  For other categories (like Minor Home Repairs, ),{" "}
                   <br />
                   you should have — or be able and willing to learn — the proper
                   skills <br />
