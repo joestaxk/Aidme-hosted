@@ -14,8 +14,8 @@ function Footer() {
           <Link to="/" className="link">
             Discover
           </Link>
-          <Link to="/" className="link">
-            Become a Tasker
+          <Link to="/errander-signup" className="link">
+            Become an Errander
           </Link>
           <Link to="/" className="link">
             All Services
