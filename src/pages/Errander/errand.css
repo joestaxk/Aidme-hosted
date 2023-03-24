@@ -168,6 +168,18 @@ article img {
     cursor: pointer;
     padding-top: -5px;
 }
+.hr-btng {
+    border: none;
+    color:red;
+    font-size: 18px;
+    position: relative;
+    /* margin-left: 1em; */
+    right: -12em;
+    background-color: white;
+    color: red;
+    cursor: pointer;
+    padding-top: -5px;
+}
 .modals h4,.errand-heading {
     font-size: 20px;
     color: red;

@@ -14,7 +14,6 @@ import Four from "../../assets/Four.png";
 import Five from "../../assets/Five.png";
 import Six from "../../assets/Six.png";
 import { MdCancel } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const Errander = ({
   open,
@@ -94,7 +93,7 @@ const Errander = ({
               Cleaning
             </option>
             <option name="" id="">
-           Delivey & Eraands
+           Delivey & Errands
             </option>
             <option name="" id="">
               Handy Man
@@ -154,7 +153,7 @@ const Errander = ({
         {/* Errander Account */}
         {open ? (
           <div className="modals">
-            <button onClick={close} className="hr-btn">
+            <button onClick={close} className="hr-btng">
               <MdCancel />
             </button>
             <h4>Create your account</h4>
@@ -175,7 +174,7 @@ const Errander = ({
               <input type="text" placeholder="Address *" className="input" />
               <input
                 type="password"
-                placeholder="Confrim Password* "
+                placeholder="ConfirmPassword* "
                 className="input"
               />
               <input type="text" placeholder="Country*" className="input" />
@@ -195,7 +194,7 @@ const Errander = ({
         {
           isErrand? (
             <div className="errand-login-btn">
-                    <button onClick={closeIsErrand} className="hr-btn">
+                    <button onClick={closeIsErrand} className="hr-btng">
               <MdCancel />
             </button>
              <div>
@@ -275,7 +274,7 @@ const Errander = ({
               <br />
               and affordable way for people to get things done by connecting{" "}
               <br />
-              them with reliable erranders who provide a wide range of services{" "}
+              them with reliable errander who provide a wide range of services{" "}
               <br />
               including pick-up/drop-off, personal shopping, grocery shopping{" "}
               <br />
@@ -456,7 +455,7 @@ const Errander = ({
                   add your bank information <br />
                   and billing address in order to get paid via the app. Savings
                   accounts, prepaid debit cards, <br />
-                  and reloadable bank cards ar en’t valid, even if they accept
+                  and reload able bank cards ar en’t valid, even if they accept
                   direct deposits. <br />
                   We take protecting your personal information seriously and use
                   the latest encryption <br />
