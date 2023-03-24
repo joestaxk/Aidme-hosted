@@ -148,7 +148,6 @@ function Home() {
               tasks
             </article>
             <Link to="/Signup"> 
-//               <Link to="/Signup" className="links">
               <Button
                 input="Sign Up"
                 color="#fff"
@@ -157,6 +156,7 @@ function Home() {
               />
             </Link>
           </div>
+
           <img className="whiteline" src={whiteline} />
 
           <div className="errander_modal">
