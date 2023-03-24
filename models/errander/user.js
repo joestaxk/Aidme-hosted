@@ -4,8 +4,9 @@ const path = require("path")
 const bcrypt   = require('bcrypt');
 const jwt      = require('jsonwebtoken')
 const httpStatus = require('http-status');
-const ApiError   = require("../utils/ApiError");
-const config = require('../config/config');
+const ApiError   = require("../../utils/ApiError");
+const config = require('../../config/config');
+
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -114,7 +115,7 @@ userSchema.method({
 })
 
 
-const User = mongoose.model('User', userSchema);
+const Errander = mongoose.model('Errander', userSchema);
 
-module.exports = User;
+module.exports = Errander;
 

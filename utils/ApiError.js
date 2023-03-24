@@ -8,6 +8,7 @@ class ApiError extends Error {
 
        this.name = name;
        this.httpCode = httpCode;
+       this.description = description;
        this.isOperational = isOperational;
 
        Error.captureStackTrace(this, ApiError);

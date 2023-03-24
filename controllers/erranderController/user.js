@@ -1,6 +1,6 @@
 const httpStatus = require('http-status');
-const User = require('../models/userModel');
-const ApiError = require('../utils/ApiError');
+const Errander = require('../../models/errander/user');
+const ApiError = require('../../utils/ApiError');
 
 let userController = {};
 
@@ -10,7 +10,7 @@ userController.verifyUserAccount = async function(req,res,next) {
         // get userId
         const id = req.id;
         // update verification on user
-        const isVerify = await User.findByIdAndUpdate({where: {id}}, {isVerified: true});
+        const isVerify = await Errander.findByIdAndUpdate({where: {id}}, {isVerified: true});
         if(isVerify){
             // return error/success report.
             res.status(httpStatus.OK).send({message: "Account has been verified successfully"})

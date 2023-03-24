@@ -1,8 +1,8 @@
 const httpStatus = require('http-status');
-const User = require('../models/userModel');
-const send_mail = require('../services/email-service');
-const ApiError = require('../utils/ApiError');
-const { acceptableGender, acceptableCountries, comparePassword, filterObjectData } = require("../utils/helpers")
+const Client = require('../../models/client/user');
+const send_mail = require('../../services/email-service');
+const ApiError = require('../../utils/ApiError');
+const { acceptableGender, acceptableCountries, comparePassword, filterObjectData } = require("../../utils/helpers")
 
 let authController = {};
 
@@ -39,7 +39,7 @@ authController.register = async function(req, res, next) {
             throw new ApiError("AVOID DUPLICATE", httpStatus.NOT_ACCEPTABLE, "User already exists")
         }
 
-        const createData = new User({
+        const createData = new Client({
             firstName,
             lastName,
             email,
@@ -90,7 +90,7 @@ authController.login = async function(req, res, next) {
     }
 
     try {
-        const ifExist = await User.findOne({ email });
+        const ifExist = await Client.findOne({ email });
         if (!ifExist) {
             throw new ApiError("NO ACCOUNT", httpStatus.NOT_ACCEPTABLE, "Account doesn't exist!")
         }
