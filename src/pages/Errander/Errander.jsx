@@ -249,7 +249,7 @@ const Errander = ({
             <p>
               Earn money on your own terms with our platform! You keep 100% of
               what you charge for your services, plus any tips. We only charge a
-              small 2% fee on your earnings. Get paid directly and securely
+              small % fee on your earnings. Get paid directly and securely
               through our invoice and payment system.
             </p>
           </section>
