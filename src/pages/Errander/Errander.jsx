@@ -14,7 +14,6 @@ import Four from "../../assets/Four.png";
 import Five from "../../assets/Five.png";
 import Six from "../../assets/Six.png";
 import { MdCancel } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const Errander = ({
   open,
@@ -94,7 +93,7 @@ const Errander = ({
               Cleaning
             </option>
             <option name="" id="">
-              Delivey & Eraands
+              Delivey & Errands
             </option>
             <option name="" id="">
               Handy Man
@@ -191,7 +190,7 @@ const Errander = ({
 
         {isErrand ? (
           <div className="errand-login-btn">
-            <button onClick={closeIsErrand} className="hr-btn">
+            <button onClick={closeIsErrand} className="hr-btng">
               <MdCancel />
             </button>
             <div>
