@@ -8,6 +8,9 @@ const authErrander = require("./auth/errander")
 const userClient = require("./users/client")
 const userErrander= require("./users/errander")
 
+// SERVICE - [countries, categories, ...]
+const serviceRoute = require("./serviceRoute")
+
 // Define default paths
 const definePath = [
  {
@@ -26,6 +29,10 @@ const definePath = [
  {
     path: "/errander",
     route: userErrander
+ },
+ {
+   path: "/service",
+   route: serviceRoute
  }
 ]
 

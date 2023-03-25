@@ -39,12 +39,13 @@ function send_mail(header,text,html,recipient, cb){
   if (error) {
       console.log(error)
       cb(null, true)
+      return;
    }
-     console.log("Message sent:-", info.messageId )
-     return cb(true, null)
+     console.log("Message sent:-", info?.messageId )
+     cb(true, null)
  })
 
 }
 
-module.exports = send_mail
+module.exports = send_mail 
  

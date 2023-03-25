@@ -1,6 +1,8 @@
 const app = require("./app");
 const config = require("./config/config");
+require("./models/categoryModel")
 require("./database");
+
 
 let server = app.listen(config.PORT, () => console.log(`Server listening to http://localhost:${config.PORT}`));
 

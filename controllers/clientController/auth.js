@@ -15,6 +15,8 @@ authController.register = async function(req, res, next) {
         phoneNumber,
         address,
         country,
+        countryCode,
+        state,
         gender,
         password
     } = req.body
@@ -23,7 +25,7 @@ authController.register = async function(req, res, next) {
         // sanitize req body.
         const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
         if (!firstName || !lastName || !emailReg.test(email) || phoneNumber.length < 8 ||
-            !address || !acceptableCountries.includes(country) || !acceptableGender.includes(gender) ||
+            !address ||!countryCode || !state || !acceptableCountries.includes(country) || !acceptableGender.includes(gender) ||
             !password
         ) {
             throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Wrong credentials!")
@@ -33,7 +35,7 @@ authController.register = async function(req, res, next) {
         // password -- what are we validating in password?
 
         // if user already exist?
-        const ifExist = await User.findOne({ email });
+        const ifExist = await Client.findOne({ email });
 
         if (ifExist) {
             throw new ApiError("AVOID DUPLICATE", httpStatus.NOT_ACCEPTABLE, "User already exists")
@@ -46,6 +48,8 @@ authController.register = async function(req, res, next) {
             phoneNumber,
             address,
             country,
+            countryCode,
+            state,
             gender,
             password
         })
@@ -63,9 +67,10 @@ authController.register = async function(req, res, next) {
         const text = "Welcome to Aidme, take a step further by verifying your account"
 
         // Send using cb
-        send_mail("Verification Link sent", text, htmlMarkup, email, async function(done, err) {
+       send_mail("Verification Link sent", text, htmlMarkup, email, async function(done, err) {
             if(err) {
-                throw new ApiError("Something went wrong", httpStatus.BAD_REQUEST, "Couldn't send email")
+                //throw new ApiError("Verification error", httpStatus.BAD_REQUEST,"Couldn't send Verification mail. check network connection")
+                return res.status(httpStatus.BAD_REQUEST).send({message: "Couldn't send Verification mail. check network connection"})
             }
 
             await createData.save();
@@ -110,11 +115,12 @@ authController.login = async function(req, res, next) {
             throw new ApiError("Verify Account", httpStatus.UNAUTHORIZED, "Account is not verified")
         }
 
-        const access = await createData.generateToken(ifExist.id, ifExist.email)
-        const refresh = await createData.generateRefreshToken(access.accessToken, false)
+        const access = await ifExist.generateToken(ifExist.id, ifExist.email)
+        const refresh = await ifExist.generateRefreshToken(access.accessToken, false)
         res.status(httpStatus.OK).send({ message: "Account is registered successfully", data: filterObjectData(ifExist, access, refresh) })
 
     } catch (error) {
+        console.log(error)
         res.status(httpStatus.BAD_REQUEST).send(error)
     }
 }

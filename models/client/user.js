@@ -32,6 +32,11 @@ const userSchema = new mongoose.Schema({
       required:true,
       trim: true
   },
+  state:  {
+      type: String,
+      required: true,
+      trim: true
+ },
   phoneNumber: {
     type: String,
     required: true,
@@ -84,15 +89,17 @@ userSchema.method({
     generateToken: async function(id, email) {
         try {
             const payload = {id, email}
-            const privateKey = await fs.readFileSync(path.join(path.resolve(__dirname, ".."), "/cert/key.pem"));
+            const privateKey = await fs.readFileSync(path.join(path.resolve(__dirname, "../.."), "/cert/key.pem"));
             var token = await jwt.sign(payload, config.JWT_SECRETKEY, {expiresIn: config.JWT_EXPIRES_IN});
 
             if(token){
+                if(this.tokens.length < 1) this.tokens.push({accessToken: token})
                 // keep token in virtual
-                this.tokens.push({accessToken: token});
-                return {accessToken: token }
+                await updateToken(this.id, {...this.tokens, accessToken: token});
+                return {accessToken: token}
             }
         } catch (error) {
+            console.log(error)
             throw new Error(error)
         }
     },
@@ -101,9 +108,9 @@ userSchema.method({
         // verify token
         const decoded = await jwt.verify(accesstoken, config.JWT_SECRETKEY);
 
-        if(decoded.id === this.id) {
+        if(decoded.id === this.id) {            
             const payload = {id: decoded.id, email: decoded.email}
-            const privateKey = await fs.readFileSync(path.join(path.resolve(__dirname, ".."), "/cert/key.pem"));
+            const privateKey = await fs.readFileSync(path.join(path.resolve(__dirname, "../.."), "/cert/key.pem"));
             var refreshToken = await jwt.sign(payload, config.JWT_SECRETKEY, {expiresIn: config.JWT_REFRESH_EXPIRES_IN});
 
             //generate new accessToken
@@ -125,3 +132,13 @@ const Client = mongoose.model('Client', userSchema);
 
 module.exports = Client;
 
+
+
+async function updateToken(id, token){
+    try {
+       await Client.findByIdAndUpdate(id, {$set: {tokens: [token]}});
+    } catch (error) {
+        console.log(error)
+        throw new ApiError("SomthingWentWrong", httpStatus.BAD_REQUEST, error)
+    }
+}

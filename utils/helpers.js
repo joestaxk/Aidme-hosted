@@ -18,8 +18,12 @@ helper.comparePassword = async function(oldPassword, newPassword) {
     }
 }
 
-helper.filterObjectData = function(createData, access, refresh) {
+helper.filterObjectData = function(createData, access="", refresh="") {
     return {
+        firstname: createData.firstName,
+        lastname: createData.lastName,
+        country: createData.country,
+        gender: createData.gender,
         email: createData.email,
         isVerified: createData.isVerified,
         blacklist: createData.blacklist,
