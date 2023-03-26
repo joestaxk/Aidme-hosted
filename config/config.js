@@ -18,6 +18,7 @@ const productionMode = {
    MAIL_PASS:  _.MAIL_TEST_PASS
 }
 
+// smth here
 module.exports = Object.assign({
     validCors: "*",
     mode:  _.NODE_ENV === "production" ? "Production" : "Development",
