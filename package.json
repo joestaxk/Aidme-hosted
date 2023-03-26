@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/Aidme2/Aidme.git"
   },
+  "engines": {
+      "node": ">=14 < 15"
+  },
   "author": "Stephen Ordu",
   "license": "ISC",
   "bugs": {
