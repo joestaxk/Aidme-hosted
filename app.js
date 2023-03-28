@@ -27,7 +27,6 @@ app.use(express.urlencoded({extended: true}));
 
 
 // cross-origin
-console.log(config.validCors)
 const corsOptions = {
    	methods: ["GET", "POST", "PUT", "DELETE"],
 	origin: config.validCors,
