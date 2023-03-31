@@ -21,7 +21,7 @@ const productionMode = {
 // smth here
 //validCors: [/^(http|https):\/\/(localhost:517+\d|127.0.0.1:517+\d)+$/],
 module.exports = Object.assign({
-    validCors: "*",
+    validCors: ["*"],
     mode:  _.NODE_ENV === "production" ? "Production" : "Development",
     JWT_SECRETKEY: _.JWT_SECRETKEY,
     JWT_EXPIRES_IN: _.JWT_EXPIRES_IN,
