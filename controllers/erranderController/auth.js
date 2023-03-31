@@ -17,6 +17,7 @@ authController.register = async function(req, res, next) {
         country,
         countryCode,
         gender,
+        state,
         password
     } = req.body
 
@@ -24,7 +25,7 @@ authController.register = async function(req, res, next) {
         // sanitize req body.
         const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
         if (!firstName || !lastName || !emailReg.test(email) || phoneNumber.length < 8 ||
-            !address ||!countryCode || !acceptableCountries.includes(country) || !acceptableGender.includes(gender) ||
+            !address ||!countryCode || !state || !acceptableCountries.includes(country) || !acceptableGender.includes(gender) ||
             !password
         ) {
             throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Wrong credentials!")
@@ -48,6 +49,7 @@ authController.register = async function(req, res, next) {
             address,
             country,
             countryCode,
+            state,
             gender,
             password
         })
