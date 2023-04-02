@@ -28,8 +28,6 @@ dashboardController.createTask = async function(req,res) {
 
        // Get the user ID from the JWT authorization key
        const userId = req.id;
-       const userEmail= req.email;
-        console.log(userEmail);
 
         
         // Create task option 
@@ -37,7 +35,6 @@ dashboardController.createTask = async function(req,res) {
             _id: new mongoose.Types.ObjectId(),
             ...taskOption
           });
-        console.log("Dickens cidar");
 
         //Create the task
         const task = new Task({
