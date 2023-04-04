@@ -8,7 +8,7 @@ const Routes = require("./routes/v1");
 const { errorConverter, errorHandler } = require("./middlewares/error");
 const limiter = require("./middlewares/rate-limiter");
 const ApiError = require("./utils/ApiError");
-const config = require("./config/config")
+const config = require("./config/config");
 
 // initialize express app
 const app = express();

@@ -15,4 +15,16 @@ router.post('/register',  authController.register);
 **/
 router.post('/login', authController.login);
 
+/**
+   FORGET PASSWORD
+   @method POST
+**/
+
+router.post("/forgetPassword", authController.forgetPassword)
+
+/**
+    UPDATE PASSWORD
+   @method POST
+**/
+router.post("/updatePassword", authController.updatePasswordByLink)
 module.exports = router

@@ -1,5 +1,4 @@
 
-const { filter } = require('compression');
 const httpStatus = require('http-status');
 const Client = require('../../models/client/user');
 const ApiError = require('../../utils/ApiError');
@@ -11,22 +10,23 @@ let userController = {};
 userController.verifyUserAccount = async function(req,res,next) {
     try {
         // get userId
-        const id = req.query.id;
+        const token = req.query.token;
 
-        if(!id) throw new ApiError("Missing credentials", httpStatus.BAD_REQUEST, "user ID not found in params");
+        if(!token) throw new ApiError("Missing Token", httpStatus.BAD_REQUEST, "user Token not found in params");
 
         // If verified
-        let amIverified = await Client.findById(id);
-        if(amIverified.isVerified) return res.send({message: "Account has already been verified"})
+        let amIverified = await Client.findOne({keyToken: token}) 
+        if(amIverified?.isVerified) return res.send({message: "Account has already been verified"})
 
-        // update verification on user
-        const isVerify = await Client.findByIdAndUpdate(id, {$set: {isVerified: true} });
+        // update verification on user, token can be used only once. and once use set to null
+        const isVerify = await Client.findByIdAndUpdate(amIverified?.id, {$set: {isVerified: true, keyToken: ""} });
         if(!isVerify){
             throw new ApiError("NOT FOUND", httpStatus.NOT_FOUND, "Something went wrong with verification. try again!")
         }
         // return error/success report.
          res.status(httpStatus.OK).send({message: "Account has been verified successfully"})
     } catch (error) {
+        console.log(error)
         res.status(httpStatus.BAD_REQUEST).send(error)
     }
 }

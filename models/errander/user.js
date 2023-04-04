@@ -62,11 +62,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  nextChangePassword: Number,
   tokens: [],
   isBlacklisted: {
    type: Boolean,
    default: false
   },
+  keyToken: String,
   isVerified: {
       type: Boolean,
       default: false,

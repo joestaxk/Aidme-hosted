@@ -9,22 +9,23 @@ let userController = {};
 userController.verifyUserAccount = async function(req,res,next) {
     try {
         // get userId
-        const id = req.query.id;
+        const token = req.query.token;
 
-        if(!id) throw new ApiError("Missing credentials", httpStatus.BAD_REQUEST, "user ID not found in params");
+        if(!token) throw new ApiError("Missing Token", httpStatus.BAD_REQUEST, "user Token not found in params");
 
         // If verified
-        let amIverified = await Errander.findById(id);
-        if(amIverified.isVerified) return res.send({message: "Account has already been verified"})
+        let amIverified = await Errander.findOne({keyToken: token});
+        if(amIverified?.isVerified) return res.send({message: "Account has already been verified"})
 
         // update verification on user
-        const isVerify = await Errander.findByIdAndUpdate(id, {$set: {isVerified: true} });
+        const isVerify = await Errander.findByIdAndUpdate(amIverified?.id, {$set: {isVerified: true, keyToken: ""} });
         if(!isVerify){
             throw new ApiError("NOT FOUND", httpStatus.NOT_FOUND, "Something went wrong with verification. try again!")
         }
         // return error/success report.
          res.status(httpStatus.OK).send({message: "Account has been verified successfully"})
     } catch (error) {
+        console.log(error)
         res.status(httpStatus.BAD_REQUEST).send(error)
     }
 }

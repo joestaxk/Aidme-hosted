@@ -7,7 +7,7 @@ serviceController.getCountries = function(req,res,next) {
     const params = req.query;
     
     if(!Object.keys(params).length) {
-        const countryRes = countries.map(({name, flag, iso3}) => {return {name, flag, iso3} });
+        const countryRes = countries.map(({name, flag, iso3, countrycode}) => {return {name, flag, iso3, countrycode} });
         res.json(countryRes)
     }
 
