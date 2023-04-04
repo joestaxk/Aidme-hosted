@@ -1,6 +1,7 @@
-const bcrypt = require("bcrypt");
 const httpStatus = require("http-status");
 const ApiError = require("./ApiError");
+const crypto = require("crypto")
+const bcrypt = require("bcrypt")
 
 let helper = {};
 
@@ -9,12 +10,22 @@ helper.acceptableCountries = ['nigeria'];
 helper.acceptableGender    =  ['male', 'female']
 
 
-helper.comparePassword = async function(oldPassword, newPassword) {
+helper.comparePassword = async function(data, encrypted) {
     try {
-        const compare = await bcrypt.compare(newPassword, oldPassword);
+        const compare = await bcrypt.compare(data, encrypted);
         return compare;
     } catch (error) {
         throw new ApiError("Error with comparing password", httpStatus.BAD_REQUEST, error)
+    }
+}
+
+helper.hashPassword = async function(password) {
+    let saltRounds = 8;
+    try {
+        const hashPassword = await bcrypt.hash(password, saltRounds)
+        this.password = hashPassword
+    } catch (error) {
+        throw new ApiError("Bcrypt error", httpStatus.BAD_REQUEST,  error)
     }
 }
 
@@ -31,5 +42,14 @@ helper.filterObjectData = function(createData, access="", refresh="") {
         refreshToken: refresh.refreshToken
     }
 }
+
+helper.createKeyToken = async function(user,conf, id=null) {
+    let token = await crypto.createHash("SHA256").update(conf.JWT_SECRETKEY + (Date.now())).digest("hex")
+    if(id){
+        await user.findByIdAndUpdate(id, {$set: {keyToken: token} })
+    }
+    return token;
+}
+
 module.exports = helper;
 
