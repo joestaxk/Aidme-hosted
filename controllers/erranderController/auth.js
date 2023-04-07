@@ -24,14 +24,37 @@ authController.register = async function(req, res, next) {
     } = req.body
 
     try {
-        // sanitize req body.
+        // sanitize req body. 
+            // common data validation [*]
         const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
-        if (!firstName || !lastName || !emailReg.test(email) || phoneNumber.length < 8 ||
-            !address ||!countryCode || !state || !country || !acceptableGender.includes(gender) ||
+        if(!firstName || !/^[a-z]+$/i.test(firstName)) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Firstname should be alphabet.")
+        else if(!lastName || !/^[a-z]+$/i.test(lastName) ) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Lastname should be alphabet.")
+        else if(!email || !emailReg.test(email)) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Invalid email specified.")
+        else if(!phoneNumber || !/^[0-9]{10,10}$/.test(phoneNumber)) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Phone number should be 10 digit.")
+        else if(!address || address.length < 5) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Be specific about your address")
+        else if(!countryCode || countryCode?.length  < 3 || countryCode?.length > 3) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Invalid country code.")
+        else if(!country || !acceptableCountries(country).length) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Invalid country name.")
+        else if(!state) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Invalid state specified.")
+        else if(!acceptableGender.includes(gender)) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Gender should be male or female.")
+        else if(!password) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Password field is invalid.")
+        else if(password) {
+            // not alphanumeric
+            if(!/[0-9]/.test(password))  throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Password should contain a numeric value.")
+            if(!/[A-Z]/.test(password))  throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Password should contain a uppercase value.")
+            if(!/[a-z]/.test(password))  throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Password should contain a lowercase value.")
+            if(!/[~!@#$%^&*()_+{}|:";'<>?,./\/]/.test(password))  throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Password should contain a symbol !@#$%.")
+            // not > 7
+            if(password?.length < 8 && password?.length > 16) throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Password length be greater than or equal to 8 and less than 17.")
+        }
+
+
+        if (!firstName || !lastName || !email || !phoneNumber ||
+            !address ||!countryCode || !country || !state || !gender ||
             !password
         ) {
-            throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "Wrong credentials!")
+            throw new ApiError("WRONG CREDENTIALS", httpStatus.NOT_ACCEPTABLE, "You have provided wrong data!")
         }
+
 
         // futher validations
         // password -- what are we validating in password?
@@ -44,8 +67,8 @@ authController.register = async function(req, res, next) {
         }
 
         const createData = new Errander({
-            firstName:firstName.trim(),
-            lastName: lastName.trim(),
+            firstName:firstName.trim().toLowerCase(),
+            lastName: lastName.trim().toLowerCase(),
             email: email.trim(),
             phoneNumber:phoneNumber.trim(),
             address:address.trim(),

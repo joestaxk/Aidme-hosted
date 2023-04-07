@@ -2,11 +2,12 @@ const httpStatus = require("http-status");
 const ApiError = require("./ApiError");
 const crypto = require("crypto")
 const bcrypt = require("bcrypt")
+const countries = require("../services/countries-service.json")
 
 let helper = {};
 
 
-helper.acceptableCountries = ['nigeria'];
+helper.acceptableCountries = (country) => countries.filter(el => el.country.toLowerCase() === country.toLowerCase())
 helper.acceptableGender    =  ['male', 'female']
 
 
